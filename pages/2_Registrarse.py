@@ -43,8 +43,15 @@ with st.form(key='form1'):
 
     submit_button = st.form_submit_button(label = 'Crear cuenta')
 
-if submit_button and ctr == r_ctr:
-    st.success("¡Felicidades {} {} ya haces parte de la familia Nexus!".format(nombre, apellido))
+if submit_button and nombre != "" and apellido != "" and email != "" and ctr != "" and r_ctr != "":
+        if submit_button and ctr == r_ctr:
+            st.success("¡Felicidades {} {} ya haces parte de la familia Nexus!".format(nombre, apellido))
+            st.success("Bienvenido de nuevo")
+            switch_page("Dashboard")
 
-elif submit_button and ctr != r_ctr: 
-    st.error("Las contraseñas no coinciden")
+        elif submit_button and ctr != r_ctr: 
+            st.error("Las contraseñas no coinciden")
+
+
+elif submit_button and nombre == "" and apellido == "" and email == "" and ctr == "" and r_ctr == "": 
+    st.error("Ingresa valores validos")
