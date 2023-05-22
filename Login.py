@@ -28,4 +28,5 @@ with col1:
 
 # Insert the text in the second column
 with col2:
-    st.title("Olvide mi contraseña")
+    st.title("Login")
+
