@@ -1,33 +1,44 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
 
-import streamlit as st
+# Crea dos botones dentro de un contenedor centrado horizontalmente
+container = st.container()
 
-# Create two columns: one for the image and one for the text
+# Crea dos columnas para la imagen y el texto
 col1, col2 = st.columns([1, 2])
 
-# Inserting an image with custom size and alignment
-st.markdown(
-    """
-    <style>
-    .small-image {
-        width: 100px;
-        height: auto;
-        object-fit: contain;
-        float: left;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Inserta una imagen en la primera columna
+col1.image("images/nexus_logo.jpeg", width=100)
 
-# Insert the image in the first column
-with col1:
-    st.image("images/nexus_logo.jpeg", width=100)
+# Inserta texto en la segunda columna
+col2.title("¿Qué buscas con nosotros?")
 
-# Insert the text in the second column
-with col2:
-    st.title("¿Que buscas con nosotros?")
+# Define el estilo CSS para centrar los botones y establecer el tamaño
+# Add custom CSS for dark mode and button styling
+custom_css = """
+<style>
+body {
+    background-color: #222222;
+    color: #ffffff;
+}
 
-#Aquí va lo otro
+.stButton button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+</style>
+"""
+
+# Apply the custom CSS
+st.markdown(custom_css, unsafe_allow_html=True)
+
+#Botones
+boton1 = st.button("Busco nuevos emprendimientos", key="submit_button1")
+boton2 = st.button("Tengo un nuevo emprendimiento", key="submit_button2")
+
+if boton1:
+    switch_page("Sobre el Buscador")
+    
+if boton2:
+    switch_page("Sobre tu emprendimiento")
