@@ -29,3 +29,5 @@ with col1:
 # Insert the text in the second column
 with col2:
     st.title("¿Que buscas con nosotros?")
+
+#Aquí va lo otro
