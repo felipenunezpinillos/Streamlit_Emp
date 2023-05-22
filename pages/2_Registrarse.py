@@ -37,9 +37,9 @@ with st.form(key='form1'):
 
     email = st.text_input("Email")
 
-    ctr = st.text_input("Contraseña")
+    ctr = st.text_input("Contraseña", type = 'password')
 
-    r_ctr = st.text_input("Confirma tu contraseña")
+    r_ctr = st.text_input("Confirma tu contraseña", type = 'password')
 
     submit_button = st.form_submit_button(label = 'Crear cuenta')
 
