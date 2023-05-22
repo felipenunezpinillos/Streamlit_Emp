@@ -27,3 +27,24 @@ with col1:
 # Insert the text in the second column
 with col2:
     st.title("Registrarse")
+
+st.subheader("Cuentanos un poco sobre ti")
+
+with st.form(key='form1'):
+    nombre = st.text_input("Nombre")
+
+    apellido = st.text_input("Apellido")
+
+    email = st.text_input("Email")
+
+    ctr = st.text_input("Contraseña")
+
+    r_ctr = st.text_input("Confirma tu contraseña")
+
+    submit_button = st.form_submit_button(label = 'Crear cuenta')
+
+if submit_button and ctr == r_ctr:
+    st.success("¡Felicidades {} {} ya haces parte de la familia Nexus!".format(nombre, apellido))
+
+elif submit_button and ctr != r_ctr: 
+    st.error("Las contraseñas no coinciden")

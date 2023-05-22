@@ -28,4 +28,11 @@ with col1:
 
 # Insert the text in the second column
 with col2:
-    st.title("Dashboard Emprendimiento")
+    st.title("Dashboard Empredimiento")
+
+
+
+
+
+
+

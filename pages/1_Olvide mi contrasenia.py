@@ -29,3 +29,13 @@ with col1:
 # Insert the text in the second column
 with col2:
     st.title("Olvide mi contraseña")
+
+st.subheader("Recupera tu contraseña")
+
+with st.form(key='form1'):
+    email = st.text_input("email")
+
+    submit_button = st.form_submit_button(label = 'Recuperar')
+
+if submit_button:
+    st.success("An email has been sent to {}, follow the instructions to access your account".format(email))
