@@ -1,5 +1,7 @@
 import streamlit as st
 
+from streamlit_extras.switch_page_button import switch_page
+
 # Create two columns: one for the image and one for the text
 col1, col2 = st.columns([1, 2])
 
@@ -47,7 +49,7 @@ if submit_button and nombre != "" and apellido != "" and email != "" and ctr != 
         if submit_button and ctr == r_ctr:
             st.success("¡Felicidades {} {} ya haces parte de la familia Nexus!".format(nombre, apellido))
             st.success("Bienvenido de nuevo")
-            switch_page("Dashboard")
+            switch_page("dashboard")
 
         elif submit_button and ctr != r_ctr: 
             st.error("Las contraseñas no coinciden")
