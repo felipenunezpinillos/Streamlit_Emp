@@ -37,5 +37,8 @@ with st.form(key='form1'):
 
     submit_button = st.form_submit_button(label = 'Recuperar')
 
-if submit_button:
-    st.success("An email has been sent to {}, follow the instructions to access your account".format(email))
+if submit_button and email != "":
+        st.success("An email has been sent to {}, follow the instructions to access your account".format(email))
+
+elif submit_button and email == "": 
+    st.error("Ingresa valores validos")

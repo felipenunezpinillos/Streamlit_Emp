@@ -1,31 +1,79 @@
 import streamlit as st
+from streamlit_ace import st_ace
+import base64
+from streamlit_extras.switch_page_button import switch_page
 
-import streamlit as st
+st.title("¿Qué tipo de productos ofreces?")
 
-# Create two columns: one for the image and one for the text
-col1, col2 = st.columns([1, 2])
+st. subheader("Buscar categorías de tus productos por nombre")
 
-# Inserting an image with custom size and alignment
-st.markdown(
-    """
-    <style>
-    .small-image {
-        width: 100px;
-        height: auto;
-        object-fit: contain;
-        float: left;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Opciones de categorías
+categorias_productos = [
+    "Tecnología",
+    "Deportes",
+    "Arte y cultura",
+    "Moda",
+    "Viajes",
+    "Ninguno",
+]
 
-# Insert the image in the first column
-with col1:
-    st.image("images/nexus_logo.jpeg", width=100)
+categorias_servicios = [
+    "Tecnología",
+    "Deportes",
+    "Arte y cultura",
+    "Moda",
+    "Viajes",
+    "Ninguno",
+]
+# Widget de checklist
+categorias_seleccionadas = st.multiselect("Selecciona las categorias de tus productos", categorias_productos, key='mt1')
 
-# Insert the text in the second column
-with col2:
-    st.title("Oferta de Productos y Servicios")
+# Add custom CSS for dark mode and button styling
+custom_css1 = """
+<style>
+body {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.stButton button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+</style>
+"""
+
+# Apply the custom CSS
+st.markdown(custom_css1, unsafe_allow_html=True)
+
+st. subheader("Buscar categorías de tus servicios por nombre")
+
+# Widget de checklist
+categorias_seleccionadas = st.multiselect("Selecciona las categorias de tus servicios", categorias_servicios, key='mt2')
+
+# Add custom CSS for dark mode and button styling
+custom_css2 = """
+<style>
+body {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.stButton button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+</style>
+"""
+
+# Apply the custom CSS
+st.markdown(custom_css2, unsafe_allow_html=True)
+
+#Botones
+boton = st.button("Siguiente", key="submit_button")
+if boton:
+    switch_page("imagenes emprendimiento")
+    
+

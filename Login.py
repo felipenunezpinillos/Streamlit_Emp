@@ -40,8 +40,11 @@ with st.form(key='form1'):
     ctr = st.text_input("Contraseña", type = 'password')
 
     submit_button = st.form_submit_button(label = 'Crear cuenta')
+    
+if submit_button and email != "" and ctr != "":
+        st.success("Bienvenido de nuevo")
+        switch_page("Dashboard")
+elif submit_button and email == "" and ctr == "": 
+    st.error("Ingresa valores validos")
 
-if submit_button:
-    st.success("Bienvenido de nuevo")
-    switch_page("Dashboard")
 
